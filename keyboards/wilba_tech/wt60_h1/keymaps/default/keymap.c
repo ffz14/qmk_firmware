@@ -4,6 +4,15 @@
 // Default layout for WT60-H1
 #include QMK_KEYBOARD_H
 
+#include "features/caps_word.h"
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+  if (!process_caps_word(keycode, record)) { return false; }
+  // Your macros ...
+
+  return true;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	// Default layer
